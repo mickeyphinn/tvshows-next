@@ -1,0 +1,16 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 1146px;
+    padding: 32px;
+    margin: 0 auto;
+}
+
+.search {
+    
+}
+
+.searchResults {
+    
+}
