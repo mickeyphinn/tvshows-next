@@ -1,4 +1,4 @@
-.show {
+.card {
     position: relative;
     overflow: hidden;
 }
@@ -11,7 +11,7 @@
     transition: transform 250ms ease-in-out;
 }
 
-.show:hover .description {
+.card:hover .description {
     transform: translate(0, 0);
 }
 

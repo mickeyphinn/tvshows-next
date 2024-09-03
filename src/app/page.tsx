@@ -1,16 +1,12 @@
-import styles from "./page.module.css";
-import SearchResults from "../common/views/search-results/search-results";
-import Search from "../common/views/search/search";
+import SearchResultsWithNext from "../next/views/search-results/search-results";
 import React from "react";
+import SearchWithNext from "../next/views/search/search";
 
 export default async function Home(props: {searchParams: Partial<Record<string, string>>}) {
   const query = decodeURIComponent(props.searchParams?.q || '');
-  return <div className={styles.page}>
-    <div className={styles.search}>
-      <Search query={query} />
-    </div>
-    <div className={styles.searchResults}>
-      <SearchResults query={query} />
-    </div>
-  </div>
+  return <>
+      <SearchWithNext query={query} />
+      <SearchResultsWithNext entity="shows" query={query} />
+      <SearchResultsWithNext entity="people" query={query} />
+  </>
 }

@@ -1,25 +1,18 @@
-'use client';
 import React from 'react';
 import { TextField } from '@mui/material';
-import { useRouter } from 'next/navigation';
 
 interface Props {
-    query: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Search: React.FC<Props> = (props) => {
-    const router = useRouter();
-    const [value, setValue] = React.useState(props.query);
-
     return <TextField
         id="search"
         label="Search for tv shows"
-        value={value}
+        value={props.value}
         fullWidth
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            router.replace(`?q=${event.target.value}`);
-            setValue(event.target.value);
-        }}
+        onChange={props.onChange}
     />
 };
 

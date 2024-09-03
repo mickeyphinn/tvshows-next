@@ -1,0 +1,11 @@
+.summary {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

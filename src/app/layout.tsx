@@ -1,9 +1,8 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import Theme from "../common/views/theme/theme";
+import styles from './layout.module.css';
 
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -12,10 +11,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <AppRouterCacheProvider>
           <Theme>
-            {children}
+            <div className={styles.layout}>
+              {children}
+            </div>
           </Theme>
         </AppRouterCacheProvider>
       </body>
