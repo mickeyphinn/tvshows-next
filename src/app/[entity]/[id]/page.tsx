@@ -11,17 +11,15 @@ interface Props {
         id?: unknown; 
     }
 }
-
-function parseParams(props: Props): {entity: 'shows' | 'people'; id: number} {
-    const id = Number(props.params.id);
-    const entity = props.params.entity === 'shows' || props.params.entity === 'people' ? props.params.entity : undefined;
-
-    if (!entity || !id) {
-        notFound();
-    }
-
-    return {entity, id};
+export function generateStaticParams(): Props['params'][] {   
+    return [
+        {entity: 'tvshows', id: '1'},
+        {entity: 'tvshows', id: '2'},
+        {entity: 'tvshows', id: '3'}
+    ]
 }
+
+// export const dynamic = 'force-static';
 
 export async function generateMetadata(props: Props): Promise<Metadata> { 
     const {entity, id} = parseParams(props);
@@ -47,6 +45,17 @@ const EntityPage: React.FC<Props> = async (props) => {
             </React.Suspense>
         </>
     )
+}
+
+function parseParams(props: Props): {entity: 'shows' | 'people'; id: number} {
+    const id = Number(props.params.id);
+    const entity = props.params.entity === 'shows' || props.params.entity === 'people' ? props.params.entity : undefined;
+
+    if (!entity || !id) {
+        notFound();
+    }
+
+    return {entity, id};
 }
 
 export default EntityPage;
